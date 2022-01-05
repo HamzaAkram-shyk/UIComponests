@@ -1,18 +1,13 @@
 package com.example.uicomponests
 
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
 import android.widget.Button
 import android.widget.Toast
-import androidx.annotation.IdRes
-import androidx.constraintlayout.widget.ConstraintLayout
-import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.example.extention.showPopup
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : Base() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,9 +17,24 @@ class MainActivity : Base() {
         }
 
         findViewById<FloatingActionButton>(R.id.post).setOnClickListener {
-            expandSheet()
+            showPopup(
+                R.layout.new_dialog,
+                message = "Now you have all the permissions to download this data package,Go Ahead",
+                iconId = R.drawable.android,
+                onPositiveClick = {
+                    Toast.makeText(this, "Im Selected", Toast.LENGTH_SHORT).show()
+                },
+                onNegativeClick = {},
+                dialogWidth = 250,
+                dialogColor = R.color.teal_700
+
+            )
+
         }
+
+
     }
+
 
 }
 
