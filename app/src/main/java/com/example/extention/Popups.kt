@@ -23,14 +23,16 @@ import android.view.WindowManager
 import androidx.cardview.widget.CardView
 
 
-// This function accepts layout resource as a parameter and show the dialog ,
-//  with the help of this function you just need to use same ids in your layout
-//  and pass the layout to the function and it will create the dialog for you
-//  and also you can change the dialog color , image icon etc
-// Some Basic Requirements (Use Material CardView as a parent in your layout as id {dialogView})
-//[titleText ID =dialog_titleTextView,message=dialog_messageTextView,
-// image=dialog_image,Positive Button=positiveBtn,Negative Button = negativeBtn]
-
+/** This function accepts layout resource as a parameter and show the dialog ,
+with the help of this function you just need to use same ids in your layout
+and pass the layout to the function and it will create the dialog for you
+and also you can change the dialog color , image icon etc
+Some Basic Requirements (Use Material CardView as a parent in your
+layout as id {dialogView})
+[titleText ID =dialog_titleTextView,message=dialog_messageTextView,
+image=dialog_image,Positive Button=positiveBtn,Negative Button = negativeBtn]*/
+/** if u need custom width not full dialog width then pass that width as a
+parameter too in dialogWidth*/
 
 fun Activity.showPopup(
     @LayoutRes viewResource: Int,
@@ -87,7 +89,7 @@ fun Activity.showPopup(
         }
         dialog.setCancelable(isCancelable)
         dialog.show()
-        // if u need custom width not full dialog width then pass that width as a parameter too
+
 
         dialogWidth?.let {
             val newWidth = it + 30
